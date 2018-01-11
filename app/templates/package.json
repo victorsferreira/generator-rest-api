@@ -1,24 +1,18 @@
 {
     "name": "<%= slugified_project_name %>",
     "version": "0.0.1",
-    "description": "RESTful API",
+    "description": "Express REST API",
     "main": "app.js",
     "scripts": {
         "test": "./node_modules/mocha/bin/mocha ./config/tests/unit.js",
         "start": "npm run generate-git-properties & nodemon --use-strict app.js",
         "start:prod": "NODE_ENV=production node app.js",
-        "lint": "eslint .",
-        "seed": "node ./config/seed || true",
+        "eslint": "./node_modules/.bin/eslint .",
         "seed:force": "node ./config/seed force || true"
     },
     "author": "",
     "license": "",
     "dependencies": {
-        "babel-core": "^6.23.1",
-        "babel-loader": "^6.3.2",
-        "babel-preset-es2015": "^6.22.0",
-        "babel-preset-react": "^6.23.0",
-        "babel-register": "^6.24.0",
         "bcryptjs": "^2.4.3",
         "bluebird": "^3.4.7",
         "body-parser": "^1.15.2",
@@ -26,7 +20,6 @@
         "cors": "^2.8.1",
         "express": "^4.14.0",
         "express-session": "^1.14.2",
-        "formidable": "^1.1.1",
         "helmet": "^3.1.0",
         "jsonwebtoken": "^7.3.0",
         "lodash": "^4.17.2",
@@ -45,6 +38,6 @@
     },
     "pre-commit": [
         "test",
-        "lint"
+        "eslint"
     ]
 }
