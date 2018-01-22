@@ -1,5 +1,5 @@
-require('../helpers');
+const Core = require('../core');
 
-Helper.forEachModuleFilePattern('(integration_test|tests/(.*)integration_test|tests/integration/*)$',function(entry,path){
+Core.forEachModuleFilePattern('(integration_test|tests/(.*)integration_test|tests/integration/*)$',function(entry,path){
   require(path);
 });

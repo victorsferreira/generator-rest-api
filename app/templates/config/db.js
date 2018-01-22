@@ -4,8 +4,7 @@ class Database{
   };
 
   connect(config){
-    var connection = this.mongoose.connect(config.uri, { user: config.username, pass: config.password }).connection;
-
+    var connection = this.mongoose.connect(config.uri, { useMongoClient: true });
     connection.on('connected', function () {
       console.log('Connected on ' + config.uri);
     });

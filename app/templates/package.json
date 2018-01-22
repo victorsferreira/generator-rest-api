@@ -1,14 +1,13 @@
 {
     "name": "<%= slugified_project_name %>",
     "version": "0.0.1",
-    "description": "Express REST API",
+    "description": "Yeoman generator for REST APIs using Express",
     "main": "app.js",
     "scripts": {
         "test": "./node_modules/mocha/bin/mocha ./config/tests/unit.js",
-        "start": "npm run generate-git-properties & nodemon --use-strict app.js",
+        "start": "./node_modules/nodemon/bin/nodemon.js --use-strict app.js",
         "start:prod": "NODE_ENV=production node app.js",
-        "eslint": "./node_modules/.bin/eslint .",
-        "seed:force": "node ./config/seed force || true"
+        "eslint": "./node_modules/.bin/eslint ."
     },
     "author": "",
     "license": "",
@@ -16,11 +15,13 @@
         "bcryptjs": "^2.4.3",
         "bluebird": "^3.4.7",
         "body-parser": "^1.15.2",
+        "bunyan": "^1.8.12",
         "compression": "^1.6.2",
         "cors": "^2.8.1",
         "express": "^4.14.0",
         "express-session": "^1.14.2",
         "helmet": "^3.1.0",
+        "forever": "^0.15.3",
         "jsonwebtoken": "^7.3.0",
         "lodash": "^4.17.2",
         "moment": "^2.17.1",
@@ -31,7 +32,7 @@
         "chai": "^3.5.0",
         "eslint": "^3.13.1",
         "mocha": "^3.2.0",
-        "nodemon": "^1.11.0",
+        "nodemon": "^1.14.11",
         "pre-commit": "^1.2.1",
         "sinon": "^1.17.7",
         "supertest": "^2.0.1"

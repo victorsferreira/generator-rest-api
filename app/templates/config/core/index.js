@@ -6,32 +6,6 @@ global['Controller'] = require('./Controller');
 global['DAO'] = require('./DAO');
 
 module.exports = {
-    moduleFileSync: function(module,file_type){
-        var path = this.resourcesPath()+'/'+module+'/'+file_type+'.js';
-        return require(path);
-    },
-    moduleFile: function(module,file_type,cb){
-        var path = this.resourcesPath()+'/'+module+'/'+file_type+'.js';
-        cb(require(path));
-    },
-    forEachFile: function(path,cb){
-        var current_path;
-        if(path.charAt(0) == '.') path = path.substr(1);
-        path = this.rootPath()+path;
-
-        var recursivelyFindFiles = function(path){
-            fs.readdirSync(path).filter(function(entry){
-                current_path = [path,entry].join('/');
-                if(fs.statSync(current_path).isDirectory()){
-                    recursivelyFindFiles(current_path,cb);
-                }else{
-                    cb(entry,current_path,path);
-                }
-            });
-        }
-
-        recursivelyFindFiles(path);
-    },
     forEachModuleFilePattern: function(pattern,cb){
         var pattern = new RegExp(pattern);
         var path = this.resourcesPath(), current_path;
